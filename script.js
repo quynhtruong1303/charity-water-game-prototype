@@ -32,12 +32,12 @@ const OTTO_MESSAGES = {
   ],
 };
 
-// Pool water colors per cleanliness tier
+// Pool water gradients per cleanliness tier (top → bottom)
 const POOL_COLORS = {
-  happy:    '#2E9DF7',   // bright blue
-  tired:    '#7BC67F',   // light green
-  sick:     '#3D7A44',   // dark green
-  critical: '#8B5E3C',   // brown
+  happy:    'linear-gradient(to bottom, #2E9DF7 0%, #003366 100%)',
+  tired:    'linear-gradient(to bottom, #90CC8F 0%, #3D7A44 100%)',
+  sick:     'linear-gradient(to bottom, #5FA864 0%, #2A5C30 100%)',
+  critical: 'linear-gradient(to bottom, #A0724A 0%, #5C3A1E 100%)',
 };
 
 // ── Win / Lose Message Arrays ─────────────────────────────
@@ -123,7 +123,7 @@ function updateOttoState(pct) {
   const msg      = messages[Math.floor(Math.random() * messages.length)];
 
   document.getElementById('speech-bubble').textContent = msg;
-  document.getElementById('pool-zone').style.backgroundColor = POOL_COLORS[tier];
+  document.getElementById('pool-zone').style.background = POOL_COLORS[tier];
 
   // Warning banner: visible only in the sick tier
   const pool = document.getElementById('pool-zone');

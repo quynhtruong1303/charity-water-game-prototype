@@ -23,7 +23,7 @@
 
 body {
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  background-color: #fff7e1;
+  background-color: #1a1a1a;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 32px rgba(255, 201, 7, 0.18);
 }
 
 /* ---------- charity:water Logo ---------- */
@@ -163,14 +163,14 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;          /* keep children inside rounded corners */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 32px rgba(255, 201, 7, 0.18);
 }
 
 /* ---------- Top Bar ---------- */
 .game-top-bar {
   display: flex;
   align-items: stretch;
-  border-bottom: 2px solid #1A1A1A;
+  border-bottom: 2.5px solid #1A1A1A;
 }
 
 .timer-box,
@@ -184,8 +184,9 @@ body {
 }
 
 .timer-box {
-  border-right: 2px solid #1A1A1A;
-  min-width: 100px;
+  border-right: 2.5px solid #1A1A1A;
+  width: 130px;
+  flex-shrink: 0;
 }
 
 .weather-box {
@@ -199,7 +200,7 @@ body {
   justify-content: center;
   padding: 8px 14px;
   gap: 2px;
-  border-left: 2px solid #1A1A1A;
+  border-left: 2.5px solid #1A1A1A;
   min-width: 90px;
 }
 
@@ -242,7 +243,7 @@ body {
 .game-left-panel {
   width: 130px;
   flex-shrink: 0;
-  border-right: 2px solid #1A1A1A;
+  border-right: 2.5px solid #1A1A1A;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -338,10 +339,9 @@ body {
 /* Air zone — where rain droplets fall */
 .air-zone {
   flex: 3;
-  border-bottom: 2px solid #1A1A1A;
   position: relative;
   overflow: hidden;
-  background-color: #ffc907;   /* sunny = same yellow; JS swaps for rain */
+  background-color: #fff7e1;   /* sunny = same yellow; JS swaps for rain */
 }
 
 /* Pool zone — the water */
@@ -349,10 +349,30 @@ body {
   flex: 2;
   position: relative;
   overflow: hidden;
-  background-color: #2E9DF7;   /* bright blue = clean water */
+  background: linear-gradient(to bottom, #2E9DF7 0%, #003366 100%);
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+}
+
+/* Organic animated water surface */
+.pool-zone::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 26'%3E%3Cpath d='M0,0 L400,0 L400,15 C360,6 320,22 280,15 C240,6 200,24 160,15 C120,6 80,23 40,15 C20,9 10,18 0,15 Z' fill='%23fff7e1'/%3E%3C/svg%3E") repeat-x;
+  background-size: 400px 26px;
+  animation: waveDrift 5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes waveDrift {
+  from { background-position-x: 0; }
+  to   { background-position-x: 400px; }
 }
 
 /* Warning flash overlay for 20–49% cleanliness */
@@ -392,6 +412,16 @@ body {
   white-space: nowrap;
 }
 
+/* Sea vegetation at pool bottom */
+.pool-veg {
+  position: absolute;
+  bottom: -20px;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 /* Floating trash items */
 .trash-item {
   position: absolute;
@@ -399,6 +429,7 @@ body {
   height: 128px;
   object-fit: contain;
   cursor: pointer;
+  z-index: 5;
   animation: trashBob 2.5s ease-in-out infinite;
 }
 
@@ -417,7 +448,7 @@ body {
   gap: 10px;
   padding: 10px 14px;
   background-color: #fff;
-  border-top: 2px solid #1A1A1A;
+  border-top: 2.5px solid #1A1A1A;
 }
 
 .strip-icon {
@@ -481,7 +512,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 32px rgba(255, 201, 7, 0.18);
 }
 
 /* ---------- End Message ---------- */
