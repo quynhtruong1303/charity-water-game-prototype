@@ -31,15 +31,19 @@
   <div id="game-screen" class="screen">
     <div class="game-card">
 
-      <!-- Top bar: timer + weather -->
+      <!-- Top bar: timer + weather + score -->
       <div class="game-top-bar">
         <div class="timer-box">
           <span class="top-label">Time Left</span>
-          <span class="timer-value" id="game-timer">05:00</span>
+          <span class="timer-value" id="game-timer">01:00</span>
         </div>
         <div class="weather-box">
           <span class="weather-icon">☀️</span>
           <span class="top-label">Sunny</span>
+        </div>
+        <div class="score-box">
+          <span class="top-label">Score</span>
+          <span class="score-display" id="game-score">0</span>
         </div>
       </div>
 
@@ -48,7 +52,7 @@
 
         <!-- Left panel: Otto + stats -->
         <div class="game-left-panel">
-          <div class="speech-bubble">I feel great!</div>
+          <div class="speech-bubble" id="speech-bubble">I feel great!</div>
           <div class="otto-game-sprite">
             <img src="img/otter_ic.png" alt="Otto">
           </div>
@@ -106,46 +110,47 @@
       </div>
 
       <h2 class="score-title">Shift Complete!</h2>
+      <p id="score-end-message" class="score-end-message"></p>
 
       <div class="otter-hero">
         <img src="img/otter_ic.png" alt="Otto the happy sea otter">
       </div>
-      <p class="otto-status">Otto is happy &amp; healthy today!</p>
+      <p id="otto-status" class="otto-status">Otto is happy &amp; healthy today!</p>
 
       <div class="score-summary">
         <h3 class="score-summary-heading">Score Summary</h3>
 
         <div class="score-row">
           <span class="score-label">Water Cleanliness</span>
-          <span class="score-value highlight">Clean Water ✓</span>
+          <span class="score-value highlight" id="score-cleanliness">Clean Water ✓</span>
         </div>
         <div class="score-divider"></div>
 
         <div class="score-row">
           <span class="score-label">Trash Removed</span>
-          <span class="score-value">32 pieces</span>
+          <span class="score-value" id="score-trash">0 pieces</span>
         </div>
         <div class="score-divider"></div>
 
         <div class="score-row">
           <span class="score-label">Water Quality Points</span>
-          <span class="score-value">500 pts</span>
+          <span class="score-value" id="score-quality-pts">0 pts</span>
         </div>
 
         <div class="score-row">
           <span class="score-label">Trash Bonus</span>
-          <span class="score-value">+150 pts</span>
+          <span class="score-value" id="score-trash-bonus">+0 pts</span>
         </div>
         <div class="score-divider"></div>
 
         <div class="score-row total-row">
           <span class="score-label">Session Total</span>
-          <span class="score-value total-value">650 pts</span>
+          <span class="score-value total-value" id="score-session-total">0 pts</span>
         </div>
 
         <div class="score-row lifetime-row">
           <span class="score-label">Lifetime Points</span>
-          <span class="score-value lifetime-value">1,250 pts</span>
+          <span class="score-value lifetime-value" id="score-lifetime">0 pts</span>
         </div>
       </div>
 

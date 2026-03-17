@@ -192,6 +192,24 @@ body {
   flex: 1;
 }
 
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  gap: 2px;
+  border-left: 2px solid #1A1A1A;
+  min-width: 90px;
+}
+
+.score-display {
+  font-size: 22px;
+  font-weight: 900;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
 .top-label {
   font-size: 10px;
   font-weight: 700;
@@ -337,6 +355,31 @@ body {
   justify-content: flex-start;
 }
 
+/* Warning flash overlay for 20–49% cleanliness */
+.pool-zone.warning-flash::before {
+  content: '⚠ Water Quality Warning';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(191, 108, 70, 0.9);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  animation: warnPulse 1.2s ease-in-out infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes warnPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
 .pool-label {
   position: absolute;
   top: 50%;
@@ -439,6 +482,17 @@ body {
   flex-direction: column;
   align-items: center;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- End Message ---------- */
+.score-end-message {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A1A1A;
+  text-align: center;
+  margin-bottom: 8px;
+  opacity: 0.85;
+  min-height: 18px;
 }
 
 /* ---------- Score Title ---------- */
