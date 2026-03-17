@@ -278,55 +278,44 @@ body {
 }
 
 .otto-game-sprite {
-  width: 72px;
-  height: 72px;
+  width: 108px;
+  height: 108px;
   margin-top: 8px;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 2.5px solid #1A1A1A;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .otto-game-sprite img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+/* Medicine & Trash stat rows */
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px 4px;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
   object-fit: contain;
 }
 
-/* Medicine & Trash badge counters */
-.stat-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  width: 100%;
-  padding: 4px 6px;
-  border-radius: 20px;
-}
-
-.medicine-badge {
-  background-color: #F5402C;
-}
-
-.trash-badge {
-  background-color: #4FCB53;
-}
-
-.badge-label {
-  font-size: 9px;
-  font-weight: 800;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  line-height: 1.1;
-}
-
-.badge-count {
-  font-size: 15px;
+.stat-count {
+  font-size: 20px;
   font-weight: 900;
-  color: #fff;
-}
-
-.badge-sublabel {
-  font-size: 8px;
-  color: #fff;
-  opacity: 0.85;
-  margin-top: 1px;
+  color: #1A1A1A;
 }
 
 /* ---------- Play Area ---------- */

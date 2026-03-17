@@ -117,11 +117,19 @@ function getTier(pct) {
   return 'critical';
 }
 
+const OTTO_SPRITES = {
+  happy:    'img/otter_v1.png',
+  tired:    'img/otter_v2.png',
+  sick:     'img/otter_v3.png',
+  critical: 'img/otter_v4.png',
+};
+
 function updateOttoState(pct) {
   const tier     = getTier(pct);
   const messages = OTTO_MESSAGES[tier];
   const msg      = messages[Math.floor(Math.random() * messages.length)];
 
+  document.getElementById('otto-sprite').src = OTTO_SPRITES[tier];
   document.getElementById('speech-bubble').textContent = msg;
   document.getElementById('pool-zone').style.background = POOL_COLORS[tier];
 
